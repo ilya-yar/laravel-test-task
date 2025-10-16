@@ -118,10 +118,15 @@ POSTGRES_PASSWORD=secret
 docker compose -f compose.dev.yaml exec workspace bash
 ```
 
-### Запуск команд Artisan:
+### Запуск миграций:
 
 ```bash
 docker compose -f compose.dev.yaml exec workspace php artisan migrate
+```
+### Запуск заполнения БД тестовыми данными:
+
+```bash
+docker compose -f compose.dev.yaml exec workspace php artisan db:seed
 ```
 
 ### Пересборка контейнеров:
@@ -199,22 +204,6 @@ Prod образ может быть развернут на любом Docker-с
 - **Nginx**: Используется в качестве веб-сервера для обслуживания приложения Laravel и обработки HTTP-запросов.
 - **Docker Compose**: Оркестрирует сервисы, упрощая процесс запуска и остановки среды.
 - **Health Checks**: Реализованы в конфигурациях Docker Compose и приложении Laravel, чтобы убедиться в работоспособности всех служб.
-
-(SELECT ROW_NUMBER() OVER (ORDER BY score_sum desc) AS rang, a.*
-FROM (SELECT sum(score) as score_sum, user_id
-FROM user_scores
-WHERE ts >= (NOW() - INTERVAL 7 DAY)
-GROUP BY user_id) a
-LIMIT 3)
-UNION
-(SELECT ROW_NUMBER() OVER (ORDER BY score_sum desc) AS rang, a.*
-FROM (SELECT sum(score) as score_sum, user_id
-FROM user_scores
-WHERE ts >= (NOW() - INTERVAL 7 DAY)
-GROUP BY user_id) a
-ORDER BY score_sum
-LIMIT 3)
-ORDER BY rang;
 
 
 

@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
- * @OA\Schema(title="SSP")
+ * @OA\Schema(title="Organisation")
  */
-class CampaignResource extends JsonResource
+class OrganisationResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -20,8 +20,8 @@ class CampaignResource extends JsonResource
         return parent::toArray($request);
     }
 
-    public static function newCollection($resource): CampaignCollection
+    public static function newCollection($resource): OrganisationCollection
     {
-        return new CampaignCollection($resource);
+        return new OrganisationCollection($resource);
     }
 }

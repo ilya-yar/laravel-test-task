@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "6f210259-02a9-4df7-9185-7a0d104208a3",
-		"name": "Laravel",
+		"_postman_id": "2eb492e1-a214-4d0e-94ca-9e810723d4be",
+		"name": "Laravel Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "16121644"
 	},
@@ -44,61 +44,24 @@
 			"response": []
 		},
 		{
-			"name": "http://159.89.23.84/api/register Copy",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n        \"name\": \"John Doe\",\n        \"email\": \"john1@example.com\",\n        \"password\": \"password\",\n        \"password_confirmation\": \"password\"\n    }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://159.89.23.84/api/register",
-					"protocol": "http",
-					"host": [
-						"159",
-						"89",
-						"23",
-						"84"
-					],
-					"path": [
-						"api",
-						"register"
-					]
-				},
-				"description": "Generated from cURL: curl -X POST http://laravel-crud-api.test/api/register \\\n    -H 'Content-Type: application/json' \\\n    -d '{\n        \"name\": \"John Doe\",\n        \"email\": \"john@example.com\",\n        \"password\": \"password\",\n        \"password_confirmation\": \"password\"\n    }'"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost/api/dsp",
+			"name": "http://localhost/api/organisation",
 			"request": {
 				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer 2|rlAmXNvZegoC0FJft3kq42eejM5SjKRSw61jLbii8d7e7eb6"
+						"value": "Bearer 1|YhQe2t0PRUAplAt31jQUCNy8Guqsv7PeJn01gTWp59a1343f"
 					}
 				],
 				"url": {
-					"raw": "http://localhost/api/dsp?page=1",
+					"raw": "http://localhost/api/organisation?page=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"api",
-						"dsp"
+						"organisation"
 					],
 					"query": [
 						{
@@ -112,172 +75,24 @@
 			"response": []
 		},
 		{
-			"name": "http://159.89.23.84/api/dsp",
+			"name": "http://localhost/api/organisation/1",
 			"request": {
 				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer 4|OUqFhhWxTY4f0TNN64HNwUmqcY2DUt5hEEsmBE5s27d173df"
+						"value": "Bearer 1|YhQe2t0PRUAplAt31jQUCNy8Guqsv7PeJn01gTWp59a1343f"
 					}
 				],
 				"url": {
-					"raw": "http://159.89.23.84/api/dsp?page=1",
-					"protocol": "http",
-					"host": [
-						"159",
-						"89",
-						"23",
-						"84"
-					],
-					"path": [
-						"api",
-						"dsp"
-					],
-					"query": [
-						{
-							"key": "page",
-							"value": "1"
-						}
-					]
-				},
-				"description": "Generated from cURL: curl -X GET http://laravel-crud-api.test/api/tasks \\\n    -H 'Authorization: Bearer <your_access_token_here>'"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost/api/ssp",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer 2|Mf7geTqQPQzgXmbwY4wirsLvNM69inBMyoP7Edpye574f276"
-					}
-				],
-				"url": {
-					"raw": "http://localhost/api/ssp?page=1",
+					"raw": "http://localhost/api/organisation/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"api",
-						"ssp"
-					],
-					"query": [
-						{
-							"key": "page",
-							"value": "1"
-						}
-					]
-				},
-				"description": "Generated from cURL: curl -X GET http://laravel-crud-api.test/api/tasks \\\n    -H 'Authorization: Bearer <your_access_token_here>'"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost/api/campaign",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer 2|Mf7geTqQPQzgXmbwY4wirsLvNM69inBMyoP7Edpye574f276"
-					}
-				],
-				"url": {
-					"raw": "http://localhost/api/campaign?page=1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"api",
-						"campaign"
-					],
-					"query": [
-						{
-							"key": "page",
-							"value": "1"
-						}
-					]
-				},
-				"description": "Generated from cURL: curl -X GET http://laravel-crud-api.test/api/tasks \\\n    -H 'Authorization: Bearer <your_access_token_here>'"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost/api/dsp/1",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer 2|Mf7geTqQPQzgXmbwY4wirsLvNM69inBMyoP7Edpye574f276"
-					}
-				],
-				"url": {
-					"raw": "http://localhost/api/dsp/3",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"api",
-						"dsp",
-						"3"
-					]
-				},
-				"description": "Generated from cURL: curl -X GET http://laravel-crud-api.test/api/tasks \\\n    -H 'Authorization: Bearer <your_access_token_here>'"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost/api/ssp/1",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer 2|Mf7geTqQPQzgXmbwY4wirsLvNM69inBMyoP7Edpye574f276"
-					}
-				],
-				"url": {
-					"raw": "http://localhost/api/ssp/35",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"api",
-						"ssp",
-						"35"
-					]
-				},
-				"description": "Generated from cURL: curl -X GET http://laravel-crud-api.test/api/tasks \\\n    -H 'Authorization: Bearer <your_access_token_here>'"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost/api/campaign/1",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer 2|Mf7geTqQPQzgXmbwY4wirsLvNM69inBMyoP7Edpye574f276"
-					}
-				],
-				"url": {
-					"raw": "http://localhost/api/campaign/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"api",
-						"campaign",
+						"organisation",
 						"1"
 					]
 				},
@@ -286,44 +101,7 @@
 			"response": []
 		},
 		{
-			"name": "http://159.89.23.84/api/login",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n        \"email\": \"john@example.com\",\n        \"password\": \"password\"\n    }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://159.89.23.84/api/login",
-					"protocol": "http",
-					"host": [
-						"159",
-						"89",
-						"23",
-						"84"
-					],
-					"path": [
-						"api",
-						"login"
-					]
-				},
-				"description": "Generated from cURL: curl -X POST http://laravel-crud-api.test/api/login \\\n    -H 'Content-Type: application/json' \\\n    -d '{\n        \"email\": \"john@example.com\",\n        \"password\": \"password\"\n    }'"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost/api/login Copy",
+			"name": "http://localhost/api/login",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -360,7 +138,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost/api/dsp/create",
+			"name": "http://localhost/api/organisation/create",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -370,12 +148,12 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer 2|Mf7geTqQPQzgXmbwY4wirsLvNM69inBMyoP7Edpye574f276"
+						"value": "Bearer 2|GKuWTSFCl4okgsO7hBnLK5UwW5wdxDetFiW20mLp4363b4eb"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"name\": \"Eleven Dsp\",\n        \"comment\": \"Dsp description\",\n        \"status\": \"active\",\n        \"country\": \"five\",\n        \"feed_api_token\": \"qweqweqweqwe\",\n        \"revshare\": 24.2,\n        \"no_js\": true\n    }",
+					"raw": "{\n    \"title\": \"Title\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -383,14 +161,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost/api/dsp",
+					"raw": "http://localhost/api/organisation",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"api",
-						"dsp"
+						"organisation"
 					]
 				},
 				"description": "Generated from cURL: curl -X POST http://laravel-crud-api.test/api/tasks \\\n    -H 'Content-Type: application/json' \\\n    -H 'Authorization: Bearer <your_access_token_here>' \\\n    -d '{\n        \"title\": \"New Task\",\n        \"description\": \"Task description\",\n        \"status\": \"pending\",\n        \"due_date\": \"2024-12-31\",\n        \"priority\": 2\n    }'"
@@ -398,83 +176,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost/api/ssp/create",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "Bearer 2|Mf7geTqQPQzgXmbwY4wirsLvNM69inBMyoP7Edpye574f276"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n        \"name\": \"30 Ssp\",\n        \"status\": \"enabled\",\n        \"protocol\": \"ortb\",\n        \"bid_type\": \"cpc\",\n        \"revshare\": 1,\n        \"type\": \"push\",\n        \"category\": \"adult\",\n        \"region\": \"usa\",\n        \"qps\": 1,\n        \"dsp_ids\": [3, 7],\n        \"campaign_ids\": [1, 2]\n    }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost/api/ssp",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"api",
-						"ssp"
-					]
-				},
-				"description": "Generated from cURL: curl -X POST http://laravel-crud-api.test/api/tasks \\\n    -H 'Content-Type: application/json' \\\n    -H 'Authorization: Bearer <your_access_token_here>' \\\n    -d '{\n        \"title\": \"New Task\",\n        \"description\": \"Task description\",\n        \"status\": \"pending\",\n        \"due_date\": \"2024-12-31\",\n        \"priority\": 2\n    }'"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost/api/campaign/create",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "Bearer 2|Mf7geTqQPQzgXmbwY4wirsLvNM69inBMyoP7Edpye574f276"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n        \"name\": \"First campaign\",\n        \"target_url\": \"First target_url\",\n        \"status\": \"enabled\",\n        \"bid_type\": \"cpc\",\n        \"bid\": 1,\n        \"budget_daily\": 2,\n        \"budget_total\": 3,\n        \"platform\": \"mobile\",\n        \"os\": \"ios\"\n    }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost/api/campaign",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"api",
-						"campaign"
-					]
-				},
-				"description": "Generated from cURL: curl -X POST http://laravel-crud-api.test/api/tasks \\\n    -H 'Content-Type: application/json' \\\n    -H 'Authorization: Bearer <your_access_token_here>' \\\n    -d '{\n        \"title\": \"New Task\",\n        \"description\": \"Task description\",\n        \"status\": \"pending\",\n        \"due_date\": \"2024-12-31\",\n        \"priority\": 2\n    }'"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost/api/dsp",
+			"name": "http://localhost/api/organisation",
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -484,12 +186,12 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer 2|Mf7geTqQPQzgXmbwY4wirsLvNM69inBMyoP7Edpye574f276"
+						"value": "Bearer 2|GKuWTSFCl4okgsO7hBnLK5UwW5wdxDetFiW20mLp4363b4eb"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"Second Dsp\",\n    \"comment\": \"Task description1111\",\n    \"status\": \"active\",\n    \"country\": \"us\"\n}",
+					"raw": "{\n    \"title\": \"New title\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -497,14 +199,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost/api/dsp/1",
+					"raw": "http://localhost/api/organisation/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"api",
-						"dsp",
+						"organisation",
 						"1"
 					]
 				},
@@ -513,85 +215,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost/api/ssp/1",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "Bearer 2|Mf7geTqQPQzgXmbwY4wirsLvNM69inBMyoP7Edpye574f276"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"name\": \"Renamed Ssp\",\n    \"uuid\": \"uuid\",\n    \"uid\": \"uid\",\n    \"url\": \"url\",\n    \"example_url\": \"example_url\",\n    \"status\": \"enabled\",\n    \"protocol\": \"ortb\",\n    \"bid_type\": \"cpc\",\n    \"revshare\": 1,\n    \"type\": \"push\",\n    \"category\": \"adult\",\n    \"region\": \"usa\",\n    \"qps\": 1,\n    \"dsp_ids\": [3, 7],\n    \"ssp_ids\": [3, 5, 7]\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost/api/ssp/3",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"api",
-						"ssp",
-						"3"
-					]
-				},
-				"description": "Generated from cURL: curl -X POST http://laravel-crud-api.test/api/tasks \\\n    -H 'Content-Type: application/json' \\\n    -H 'Authorization: Bearer <your_access_token_here>' \\\n    -d '{\n        \"title\": \"New Task\",\n        \"description\": \"Task description\",\n        \"status\": \"pending\",\n        \"due_date\": \"2024-12-31\",\n        \"priority\": 2\n    }'"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost/api/campaign/1",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "Bearer 2|Mf7geTqQPQzgXmbwY4wirsLvNM69inBMyoP7Edpye574f276"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n        \"name\": \"First campaign edited\",\n        \"target_url\": \"First target_url\",\n        \"status\": \"enabled\",\n        \"bid_type\": \"cpc\",\n        \"bid\": 1,\n        \"budget_daily\": 2,\n        \"budget_total\": 3,\n        \"platform\": \"mobile\",\n        \"os\": \"ios\"\n    }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost/api/campaign/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"api",
-						"campaign",
-						"1"
-					]
-				},
-				"description": "Generated from cURL: curl -X POST http://laravel-crud-api.test/api/tasks \\\n    -H 'Content-Type: application/json' \\\n    -H 'Authorization: Bearer <your_access_token_here>' \\\n    -d '{\n        \"title\": \"New Task\",\n        \"description\": \"Task description\",\n        \"status\": \"pending\",\n        \"due_date\": \"2024-12-31\",\n        \"priority\": 2\n    }'"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost/api/dsp/1",
+			"name": "http://localhost/api/organisation/1",
 			"request": {
 				"method": "DELETE",
 				"header": [
@@ -601,7 +225,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer 2|Mf7geTqQPQzgXmbwY4wirsLvNM69inBMyoP7Edpye574f276"
+						"value": "Bearer 2|GKuWTSFCl4okgsO7hBnLK5UwW5wdxDetFiW20mLp4363b4eb"
 					}
 				],
 				"body": {
@@ -614,92 +238,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost/api/dsp/1",
+					"raw": "http://localhost/api/organisation/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"api",
-						"dsp",
-						"1"
-					]
-				},
-				"description": "Generated from cURL: curl -X POST http://laravel-crud-api.test/api/tasks \\\n    -H 'Content-Type: application/json' \\\n    -H 'Authorization: Bearer <your_access_token_here>' \\\n    -d '{\n        \"title\": \"New Task\",\n        \"description\": \"Task description\",\n        \"status\": \"pending\",\n        \"due_date\": \"2024-12-31\",\n        \"priority\": 2\n    }'"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost/api/ssp/1",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "Bearer 2|Mf7geTqQPQzgXmbwY4wirsLvNM69inBMyoP7Edpye574f276"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost/api/ssp/41",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"api",
-						"ssp",
-						"41"
-					]
-				},
-				"description": "Generated from cURL: curl -X POST http://laravel-crud-api.test/api/tasks \\\n    -H 'Content-Type: application/json' \\\n    -H 'Authorization: Bearer <your_access_token_here>' \\\n    -d '{\n        \"title\": \"New Task\",\n        \"description\": \"Task description\",\n        \"status\": \"pending\",\n        \"due_date\": \"2024-12-31\",\n        \"priority\": 2\n    }'"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost/api/campaign/1",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "Bearer 2|rlAmXNvZegoC0FJft3kq42eejM5SjKRSw61jLbii8d7e7eb6"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost/api/campaign/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"api",
-						"campaign",
+						"organisation",
 						"1"
 					]
 				},
