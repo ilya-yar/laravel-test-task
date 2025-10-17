@@ -54,7 +54,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost/api/organisation?page=1",
+					"raw": "http://localhost/api/organisation?buildings=22&business=14",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -65,8 +65,86 @@
 					],
 					"query": [
 						{
-							"key": "page",
-							"value": "1"
+							"key": "buildings",
+							"value": "22"
+						},
+						{
+							"key": "business",
+							"value": "14"
+						}
+					]
+				},
+				"description": "Generated from cURL: curl -X GET http://laravel-crud-api.test/api/tasks \\\n    -H 'Authorization: Bearer <your_access_token_here>'"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/api/organisation search by buildings and business",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|YhQe2t0PRUAplAt31jQUCNy8Guqsv7PeJn01gTWp59a1343f"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/api/organisation?buildings=22&business=14",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"organisation"
+					],
+					"query": [
+						{
+							"key": "buildings",
+							"value": "22"
+						},
+						{
+							"key": "business",
+							"value": "14"
+						}
+					]
+				},
+				"description": "Generated from cURL: curl -X GET http://laravel-crud-api.test/api/tasks \\\n    -H 'Authorization: Bearer <your_access_token_here>'"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/api/organisation search by buildings and business Copy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|YhQe2t0PRUAplAt31jQUCNy8Guqsv7PeJn01gTWp59a1343f"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/api/organisation?lat=74.598511&lon=17.178895&radius=100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"organisation"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "74.598511"
+						},
+						{
+							"key": "lon",
+							"value": "17.178895"
+						},
+						{
+							"key": "radius",
+							"value": "100"
 						}
 					]
 				},
