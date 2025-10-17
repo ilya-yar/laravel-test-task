@@ -13,11 +13,22 @@ class OrganisationResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @return array<string, mixed>
+     * @param  \Illuminate\Http\Request  $request
+     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
-    public function toArray(Request $request): array
+    public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'building' => BuildingResource::make($this->whenLoaded('building')),
+            'business' => BusinessResource::collection($this->whenLoaded('business')),
+            'distance' => $this->when(isset($this->distance), $this->distance),
+            'coords' => $this->when(isset($this->latitude, $this->longitude), [
+                'lat' => $this->latitude,
+                'lon' => $this->longitude
+            ])
+        ];
     }
 
     public static function newCollection($resource): OrganisationCollection

@@ -41,11 +41,11 @@ class Organisation extends Model
     ];
 
     public static array $relationships = [
-        'building',
-        'rubrics'
+        'buildings',
+        'business'
     ];
 
-    public function building(): BelongsTo
+    public function buildings(): BelongsTo
     {
         return $this->belongsTo(
             Building::class,

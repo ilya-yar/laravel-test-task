@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Filters\OrganisationFilter;
+use App\Http\Requests\OrganisationRequest;
 use App\Http\Requests\StoreOrganisationRequest;
 use App\Http\Requests\UpdateOrganisationRequest;
 use App\Http\Resources\OrganisationResource;
@@ -10,13 +12,19 @@ use App\Models\Organisation;
 
 class OrganisationController extends Controller
 {
+    private OrganisationFilter $filter;
+
+    public function __construct(OrganisationRequest $request)
+    {
+        $this->filter = new OrganisationFilter($request);
+    }
 
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $models = Organisation::paginate(10);
+        $models = Organisation::filter($this->filter)->paginate(10);
 
         return OrganisationResource::newCollection($models);
     }
@@ -33,10 +41,10 @@ class OrganisationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $id): OrganisationResource
     {
-        $model = Organisation::findOrFail($id);
-        return OrganisationResource::make($model);
+        $companies = Organisation::filter($this->filter)->findOrFail($id);
+        return OrganisationResource::make($companies);
     }
 
     /**
