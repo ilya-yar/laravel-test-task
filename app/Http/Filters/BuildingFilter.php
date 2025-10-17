@@ -14,15 +14,6 @@ class BuildingFilter extends QueryFilter
         return Building::$sortColumns;
     }
 
-    public function companies(string $companies): void
-    {
-        $companies = explode(',', $companies);
-        $this->builder->whereHas('companies', function ($builder) use ($companies) {
-            $builder->whereIn('companies.id', $companies);
-        });
-        $this->with('companies');
-    }
-
     public function with(string $with): void
     {
         $relations = explode(',', $with);

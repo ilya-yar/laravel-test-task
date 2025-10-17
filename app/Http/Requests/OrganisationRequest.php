@@ -29,6 +29,7 @@ class OrganisationRequest extends FormRequest
     public function rules()
     {
         return array_merge([
+            'title' => ['string'],
             'buildings' => ['array'],
             'business' => ['array'],
             'sort' => ['array', 'size:2'],

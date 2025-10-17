@@ -3,6 +3,7 @@
 namespace App\Http\Filters;
 
 use App\Models\Organisation;
+use Illuminate\Support\Facades\DB;
 
 class OrganisationFilter extends QueryFilter
 {
@@ -14,6 +15,11 @@ class OrganisationFilter extends QueryFilter
         return Organisation::$sortColumns;
     }
 
+    public function title(string $title): void
+    {
+        $this->builder->where('title', $title);
+    }
+
     public function buildings(string $buildings): void
     {
         $buildings = explode(',', $buildings);
@@ -22,11 +28,29 @@ class OrganisationFilter extends QueryFilter
 
     public function business(string $business): void
     {
-        $businessArr = explode(',', $business);
+        $businessArr = DB::select('WITH RECURSIVE subbusiness AS (
+    -- Нерекурсивная часть: находим деятельность и задаём начальный уровень 1
+    SELECT
+        id,
+        1 AS level
+    FROM business
+    WHERE id in (:id)
+
+    UNION ALL
+
+    -- Рекурсивная часть: находим дочерние элементы, пока уровень не превышает 3
+    SELECT
+        e.id,
+        s.level + 1
+    FROM business e
+             JOIN subbusiness s ON e.parent_id = s.id
+    WHERE s.level < :level -- Ограничение по глубине
+)
+SELECT distinct id FROM subbusiness;', ['id' => $business, 'level' => 3]);
+        $businessArr = array_column($businessArr, 'id');
         $this->builder->whereHas('business', function ($builder) use ($businessArr) {
             $builder->whereIn('business.id', $businessArr);
         });
-        //$this->with('rubrics');
     }
 
     public function with(string $with): void

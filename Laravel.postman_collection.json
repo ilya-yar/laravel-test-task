@@ -44,7 +44,44 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost/api/organisation",
+			"name": "http://localhost/api/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"email\": \"john@example.com\",\n        \"password\": \"password\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://laravel-crud-api.test/api/login \\\n    -H 'Content-Type: application/json' \\\n    -d '{\n        \"email\": \"john@example.com\",\n        \"password\": \"password\"\n    }'"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/api/organisation list",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -79,13 +116,44 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost/api/organisation search by buildings and business",
+			"name": "http://localhost/api/organisation search by buildings",
 			"request": {
 				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer 1|YhQe2t0PRUAplAt31jQUCNy8Guqsv7PeJn01gTWp59a1343f"
+						"value": "Bearer 3|ejckNcA7yjG9EqRbLWTUU3GDJJTADSAtPxh65I52be3714a5"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/api/organisation?buildings=22",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"organisation"
+					],
+					"query": [
+						{
+							"key": "buildings",
+							"value": "22"
+						}
+					]
+				},
+				"description": "Generated from cURL: curl -X GET http://laravel-crud-api.test/api/tasks \\\n    -H 'Authorization: Bearer <your_access_token_here>'"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/api/organisation search by business",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 3|ejckNcA7yjG9EqRbLWTUU3GDJJTADSAtPxh65I52be3714a5"
 					}
 				],
 				"url": {
@@ -114,7 +182,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost/api/organisation search by buildings and business Copy",
+			"name": "http://localhost/api/organisation search by radius",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -153,7 +221,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost/api/organisation/1",
+			"name": "http://localhost/api/organisation search by rectangle",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -163,15 +231,28 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost/api/organisation/1",
+					"raw": "http://localhost/api/organisation?lat=74.598511&lon=17.178895&radius=100",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"api",
-						"organisation",
-						"1"
+						"organisation"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "74.598511"
+						},
+						{
+							"key": "lon",
+							"value": "17.178895"
+						},
+						{
+							"key": "radius",
+							"value": "100"
+						}
 					]
 				},
 				"description": "Generated from cURL: curl -X GET http://laravel-crud-api.test/api/tasks \\\n    -H 'Authorization: Bearer <your_access_token_here>'"
@@ -179,39 +260,106 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost/api/login",
+			"name": "http://localhost/api/organisation search by rectangle center point",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [
 					{
-						"key": "Content-Type",
-						"value": "application/json"
+						"key": "Authorization",
+						"value": "Bearer 1|YhQe2t0PRUAplAt31jQUCNy8Guqsv7PeJn01gTWp59a1343f"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n        \"email\": \"john@example.com\",\n        \"password\": \"password\"\n    }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "http://127.0.0.1/api/login",
+					"raw": "http://localhost/api/organisation?lat=74.598511&lon=17.178895&radius=100&height=100&width=100",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"localhost"
 					],
 					"path": [
 						"api",
-						"login"
+						"organisation"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "74.598511"
+						},
+						{
+							"key": "lon",
+							"value": "17.178895"
+						},
+						{
+							"key": "radius",
+							"value": "100"
+						},
+						{
+							"key": "height",
+							"value": "100"
+						},
+						{
+							"key": "width",
+							"value": "100"
+						}
 					]
 				},
-				"description": "Generated from cURL: curl -X POST http://laravel-crud-api.test/api/login \\\n    -H 'Content-Type: application/json' \\\n    -d '{\n        \"email\": \"john@example.com\",\n        \"password\": \"password\"\n    }'"
+				"description": "Generated from cURL: curl -X GET http://laravel-crud-api.test/api/tasks \\\n    -H 'Authorization: Bearer <your_access_token_here>'"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/api/organisation/1 get one by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|YhQe2t0PRUAplAt31jQUCNy8Guqsv7PeJn01gTWp59a1343f"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/api/organisation/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"organisation",
+						"2"
+					]
+				},
+				"description": "Generated from cURL: curl -X GET http://laravel-crud-api.test/api/tasks \\\n    -H 'Authorization: Bearer <your_access_token_here>'"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/api/organisation get by business id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|YhQe2t0PRUAplAt31jQUCNy8Guqsv7PeJn01gTWp59a1343f"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/api/organisation?business=14,19",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"organisation"
+					],
+					"query": [
+						{
+							"key": "business",
+							"value": "14,19"
+						}
+					]
+				},
+				"description": "Generated from cURL: curl -X GET http://laravel-crud-api.test/api/tasks \\\n    -H 'Authorization: Bearer <your_access_token_here>'"
 			},
 			"response": []
 		},

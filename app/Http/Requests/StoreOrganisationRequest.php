@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- * @OA\Schema(title="Запрос на создание организации", required={"name"})
+ * @OA\Schema(title="Запрос на создание организации", required={"title"})
  */
 class StoreOrganisationRequest extends FormRequest
 {

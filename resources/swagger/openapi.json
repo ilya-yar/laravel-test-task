@@ -1,183 +1,26 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "API DSP",
+        "title": "API Laravel project",
         "description": "Исходник для описания базовых/глобальных данных документации (swagger)",
         "version": "1.0.0"
     },
-    "paths": {
-        "api/dsp": {
-            "get": {
-                "tags": [
-                    "DSP"
-                ],
-                "summary": "Список DSP",
-                "operationId": "indexDsp",
-                "responses": {
-                    "200": {
-                        "description": "Список DSP",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "data": {
-                                            "description": "Список DSP",
-                                            "type": "array",
-                                            "items": {
-                                                "properties": {
-                                                    "name": {
-                                                        "type": "string",
-                                                        "example": "DSP name"
-                                                    }
-                                                },
-                                                "type": "object"
-                                            }
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "userAuth": []
-                    }
-                ]
-            },
-            "put": {
-                "tags": [
-                    "DSP"
-                ],
-                "summary": "Обновление DSP по Id",
-                "operationId": "updateDSP",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/UpdateDspRequest"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Обновленный DSP",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/DspResource"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "userAuth": []
-                    }
-                ]
-            },
-            "post": {
-                "tags": [
-                    "DSP"
-                ],
-                "summary": "Создание DSP",
-                "operationId": "createDsp",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/StoreDspRequest"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Новая DSP",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/DspResource"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "userAuth": []
-                    }
-                ]
-            },
-            "delete": {
-                "tags": [
-                    "DSP"
-                ],
-                "summary": "Удаление DSP по Id",
-                "operationId": "deleteDSP",
-                "responses": {
-                    "204": {
-                        "description": "Deletion successful"
-                    }
-                },
-                "security": [
-                    {
-                        "userAuth": []
-                    }
-                ]
-            }
-        },
-        "api/dsp/{id}": {
-            "get": {
-                "tags": [
-                    "DSP"
-                ],
-                "summary": "Получение DSP по Id",
-                "operationId": "getSingleDSP",
-                "responses": {
-                    "200": {
-                        "description": "DSP",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "": {
-                                            "$ref": "#/components/schemas/DspResource"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "userAuth": []
-                    }
-                ]
-            }
-        }
-    },
     "components": {
         "schemas": {
-            "StoreDspRequest": {
-                "title": "Запрос на создание DSP",
+            "StoreOrganisationRequest": {
+                "title": "Запрос на создание организации",
                 "required": [
-                    "name",
-                    "comment",
-                    "status",
-                    "country"
+                    "name"
                 ]
             },
-            "UpdateDspRequest": {
-                "title": "Запрос на обновление DSP"
+            "UpdateOrganisationRequest": {
+                "title": "Запрос на обновление организации",
+                "required": [
+                    "name"
+                ]
             },
-            "DspResource": {
-                "title": "DSP"
+            "OrganisationResource": {
+                "title": "Organisation"
             }
         }
     }
