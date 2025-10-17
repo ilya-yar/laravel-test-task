@@ -15,8 +15,7 @@ trait Searchable
             'lon2'   => ['numeric', 'between:-90,90'],
             'radius' => ['numeric', 'gt:0'],
             'width'  => ['numeric', 'gt:0'],
-            'height' => ['numeric', 'gt:0'],
-            'metric' => ['string']
+            'height' => ['numeric', 'gt:0']
         ];
     }
 

@@ -17,8 +17,15 @@ class OrganisationFactory extends Factory
      */
     public function definition(): array
     {
+        $phonesCount = rand(1, 10);
+        $phones = [];
+        for ($i = 0; $i < $phonesCount; $i++) {
+            $phones[] = $this->faker->phoneNumber();
+        }
+
         return [
             'title' => $this->faker->company(),
+            'phones' => $phones,
         ];
     }
 }

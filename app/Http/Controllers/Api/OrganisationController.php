@@ -7,6 +7,7 @@ use App\Http\Filters\OrganisationFilter;
 use App\Http\Requests\OrganisationRequest;
 use App\Http\Requests\StoreOrganisationRequest;
 use App\Http\Requests\UpdateOrganisationRequest;
+use App\Http\Resources\OrganisationCollection;
 use App\Http\Resources\OrganisationResource;
 use App\Models\Organisation;
 
@@ -25,6 +26,7 @@ class OrganisationController extends Controller
     public function index()
     {
         $models = Organisation::filter($this->filter)->paginate(10);
+        //print_r($models); exit;
 
         return OrganisationResource::newCollection($models);
     }
@@ -41,10 +43,11 @@ class OrganisationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(int $id): OrganisationResource
+    public function show(int $id): OrganisationCollection
     {
         $companies = Organisation::filter($this->filter)->findOrFail($id);
-        return OrganisationResource::make($companies);
+      //  print_r($companies); exit;
+        return OrganisationResource::newCollection($companies);
     }
 
     /**

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 trait Searchable
 {
+    const EARTH_RADIUS_KM = 6371;
     protected Builder $builder;
 
     protected float $lat;
@@ -13,11 +14,9 @@ trait Searchable
     protected float $lat2;
     protected float $lon2;
 
-    protected float $radius;
+    protected float $radius;  // km
     protected float $width;
     protected float $height;
-
-    protected string $metric = 'km';
 
     public function __set($var, $value)
     {
@@ -56,7 +55,7 @@ trait Searchable
                            * cos( radians( longitude ) - radians(?)
                            ) + sin( radians(?) ) *
                            sin( radians( latitude ) ) )
-                         ) < ?', [$this->searchMetric(), $this->lat, $this->lon, $this->lat, $this->radius]);
+                         ) < ?', [self::EARTH_RADIUS_KM, $this->lat, $this->lon, $this->lat, $this->radius]);
     }
 
     public function inRectangle(): void
@@ -78,7 +77,7 @@ trait Searchable
 
     public function inRectangleByPoint(): void
     {
-        $metric = $this->searchMetric();
+        $metric = self::EARTH_RADIUS_KM;
         $pi180 = M_PI * 180;
 
         $dLat = $this->height / 2 / $metric * $pi180;
@@ -109,22 +108,6 @@ trait Searchable
         return SearchAreaEnum::NONE;
     }
 
-    private function searchMetric() : int
-    {
-        if (is_numeric($this->metric))
-            return intval($this->metric);
-
-        switch ($this->metric) {
-            case 'm':
-                return SearchMetricEnum::METERS;
-            case 'mile':
-                return SearchMetricEnum::MILES;
-            case 'km':
-            default:
-                return SearchMetricEnum::KILOMETERS;
-        }
-    }
-
     private function addDistanceToPoint(float $latitude, float $longitude): void
     {
         $this->builder->selectRaw('( ? * acos( cos( radians(?) ) *
@@ -132,6 +115,6 @@ trait Searchable
                            * cos( radians( longitude ) - radians(?)
                            ) + sin( radians(?) ) *
                            sin( radians( latitude ) ) )
-                         ) AS distance', [$this->searchMetric(), $latitude, $longitude, $latitude]);
+                         ) AS distance', [self::EARTH_RADIUS_KM, $latitude, $longitude, $latitude]);
     }
 }

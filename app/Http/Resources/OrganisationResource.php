@@ -16,7 +16,7 @@ class OrganisationResource extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
-    public function toArray($request)
+    public function toArray(Request $request)
     {
         return [
             'id' => $this->id,
@@ -27,7 +27,8 @@ class OrganisationResource extends JsonResource
             'coords' => $this->when(isset($this->latitude, $this->longitude), [
                 'lat' => $this->latitude,
                 'lon' => $this->longitude
-            ])
+            ]),
+            'phones' => $this->phones
         ];
     }
 
