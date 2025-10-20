@@ -7,6 +7,7 @@ use App\Http\Filters\OrganisationFilter;
 use App\Http\Requests\OrganisationRequest;
 use App\Http\Requests\StoreOrganisationRequest;
 use App\Http\Requests\UpdateOrganisationRequest;
+use App\Http\Resources\DspResource;
 use App\Http\Resources\OrganisationCollection;
 use App\Http\Resources\OrganisationResource;
 use App\Models\Organisation;
@@ -21,39 +22,117 @@ class OrganisationController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * @OA\Get(
+     *      tags={"Organisation"},
+     *      path="api/organisation",
+     *      operationId="indexOrganisation",
+     *      method="GET",
+     *      summary="Список организаций",
+     *      security={{"userAuth":{}}},
+     *      @OA\Response(
+     *          response=200,
+     *          description="Список организаций",
+     *          @OA\JsonContent(
+     *              @OA\Property(
+     *                  property="data",
+     *                  description="Список организаций",
+     *                  type="array",
+     *                  @OA\Items(ref="#/components/schemas/OrganisationResource")
+     *              )
+     *          )
+     *      )
+     *  )
      */
-    public function index()
+    public function index(): OrganisationCollection
     {
         $models = Organisation::filter($this->filter)->paginate(10);
-        //print_r($models); exit;
 
         return OrganisationResource::newCollection($models);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @OA\Post(
+     *     tags={"Organisation"},
+     *     path="api/organisation",
+     *     operationId="createOrganisation",
+     *     method="POST",
+     *     summary="Создание организации",
+     *     security={{"userAuth":{}}},
+     *     @OA\RequestBody(
+     *         @OA\JsonContent(
+     *             ref="#/components/schemas/StoreOrganisationRequest"
+     *         )
+     *     ),
+     *    @OA\Response(
+     *          response=201,
+     *          description="Новая организация",
+     *          @OA\JsonContent(
+     *              ref="#/components/schemas/OrganisationResource"
+     *          )
+     *    )
+     * )
+     * @param StoreOrganisationRequest $request
+     * @return OrganisationResource
      */
-    public function store(StoreOrganisationRequest $request)
+    public function store(StoreOrganisationRequest $request): OrganisationResource
     {
         $model = Organisation::create($request->validated());
         return new OrganisationResource($model);
     }
 
     /**
-     * Display the specified resource.
+     * @OA\Get(
+     *      tags={"Organisation"},
+     *      path="api/organisation/{id}",
+     *      operationId="getSingleOrganisation",
+     *      method="GET",
+     *      summary="Органищация",
+     *      security={{"userAuth":{}}},
+     *      @OA\Response(
+     *          response=200,
+     *          description="Органищация",
+     *          @OA\JsonContent(
+     *              @OA\Property(
+     *                  property="data",
+     *                  description="Органищация",
+     *                  type="object",
+     *                  ref="#/components/schemas/OrganisationResource"
+     *              )
+     *          )
+     *      )
+     *  )
      */
-    public function show(int $id): OrganisationCollection
+    public function show(int $id): OrganisationResource
     {
         $companies = Organisation::filter($this->filter)->findOrFail($id);
-      //  print_r($companies); exit;
-        return OrganisationResource::newCollection($companies);
+        return OrganisationResource::make($companies);
     }
 
     /**
-     * Update the specified resource in storage.
+     * @return DspResource
+     *
+     * @OA\Put(
+     *     tags={"Organisation"},
+     *     path="api/organisation",
+     *     operationId="updateOrganisation",
+     *     method="PUT",
+     *     summary="Обновление организации по Id",
+     *     security={{"userAuth":{}}},
+     *     @OA\RequestBody(
+     *          @OA\JsonContent(
+     *              ref="#/components/schemas/UpdateOrganisationRequest"
+     *          )
+     *      ),
+     *     @OA\Response(
+     *          response=200,
+     *          description="Обновленная организация",
+     *          @OA\JsonContent(
+     *               ref="#/components/schemas/OrganisationResource"
+     *          )
+     *     )
+     * )
      */
-    public function update(UpdateOrganisationRequest $request, string $id)
+    public function update(UpdateOrganisationRequest $request, string $id): OrganisationResource
     {
         $model = Organisation::find($id);
         $model->update($request->validated());

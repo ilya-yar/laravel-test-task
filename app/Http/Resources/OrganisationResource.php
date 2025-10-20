@@ -6,7 +6,26 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
- * @OA\Schema(title="Organisation")
+ * @OA\Schema(
+ *    schema="OrganisationResource",
+ *    title="Organisation",
+ *    type="object",
+ *    @OA\Property(
+ *      property="id",
+ *      type="integer",
+ *      example=1
+ *    ),
+ *    @OA\Property(
+ *      property="title",
+ *      type="string",
+ *      example="Название огранизации"
+ *    ),
+ *    @OA\Property(
+ *      property="phones",
+ *      type="array",
+ *      @OA\Items(type="string", example="+79109698891"),
+ *    ),
+ *  )
  */
 class OrganisationResource extends JsonResource
 {

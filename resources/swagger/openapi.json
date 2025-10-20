@@ -5,22 +5,174 @@
         "description": "Исходник для описания базовых/глобальных данных документации (swagger)",
         "version": "1.0.0"
     },
+    "paths": {
+        "api/organisation": {
+            "get": {
+                "tags": [
+                    "Organisation"
+                ],
+                "summary": "Список организаций",
+                "operationId": "indexOrganisation",
+                "responses": {
+                    "200": {
+                        "description": "Список организаций",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "description": "Список организаций",
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/OrganisationResource"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "userAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Organisation"
+                ],
+                "summary": "Обновление организации по Id",
+                "operationId": "updateOrganisation",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateOrganisationRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Обновленная организация",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OrganisationResource"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "userAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Organisation"
+                ],
+                "summary": "Создание организации",
+                "operationId": "createOrganisation",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreOrganisationRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Новая организация",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OrganisationResource"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "userAuth": []
+                    }
+                ]
+            }
+        },
+        "api/organisation/{id}": {
+            "get": {
+                "tags": [
+                    "Organisation"
+                ],
+                "summary": "Органищация",
+                "operationId": "getSingleOrganisation",
+                "responses": {
+                    "200": {
+                        "description": "Органищация",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/OrganisationResource"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "userAuth": []
+                    }
+                ]
+            }
+        }
+    },
     "components": {
         "schemas": {
             "StoreOrganisationRequest": {
                 "title": "Запрос на создание организации",
                 "required": [
-                    "name"
+                    "title"
                 ]
             },
             "UpdateOrganisationRequest": {
                 "title": "Запрос на обновление организации",
                 "required": [
-                    "name"
+                    "title"
                 ]
             },
             "OrganisationResource": {
-                "title": "Organisation"
+                "title": "Organisation",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "title": {
+                        "type": "string",
+                        "example": "Название огранизации"
+                    },
+                    "phones": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "example": "+79109698891"
+                        }
+                    }
+                },
+                "type": "object"
             }
         }
     }
